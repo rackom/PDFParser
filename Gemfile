@@ -8,6 +8,12 @@ gem 'rails', '3.1.0'
 gem 'sqlite3'
 gem 'json'
 gem 'carrierwave'
+gem "pdf-toolkit", "~> 0.5.0"
+
+group :development, :test do
+  gem 'rspec-rails'
+  gem 'mongrel', '1.2.0.pre2'
+end
 
 # Gems used only for assets and not required
 # in production environments by default.

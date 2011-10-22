@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20111022123526) do
 
   create_table "documents", :force => true do |t|
     t.string   "name"
-    t.string   "hash"
+    t.string   "checksum"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
