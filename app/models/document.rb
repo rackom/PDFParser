@@ -41,32 +41,38 @@ class Document < ActiveRecord::Base
             @tmp_array.each do |item|
               # ak je to typ polozky
               if item.include? "FieldType"
-                new_element.FieldType = item.split(":")[1..-1]
+                new_element.FieldType = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
               end
               
               #ak je to nazov polozky
               if item.include? "FieldName"
-                new_element.FieldName = item.split(":")[1..-1]
+                new_element.FieldName = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
               end
               
               #ak je to popis polozky
               if item.include? "FieldNameAlt"
-                new_element.FieldNameAlt = item.split(":")[1..-1]
+                new_element.FieldNameAlt = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
               end
               
               # ak je to flag polozky
               if item.include? "FieldFlags"
-                new_element.FieldFlags = item.split(":")[1..-1]
+                new_element.FieldFlags = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
               end
               
               # ak je to zarovnanie
               if item.include? "FieldJustification"
-                new_element.FieldJustification = item.split(":")[1..-1]
+                new_element.FieldJustification = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
               end
               
               # ak je to maximalna dlzka
               if item.include? "FieldMaxLength"
-                new_element.FieldMaxLength = item.split(":")[1..-1]
+                max_len = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
+                
+                if max_len.include? "65536"
+                  max_len = 65535
+                end
+                
+                new_element.FieldMaxLength = max_len
               end
             end
             
