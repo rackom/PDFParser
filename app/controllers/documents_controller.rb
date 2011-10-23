@@ -68,7 +68,7 @@ class DocumentsController < ApplicationController
       end
     end
   end
-s
+
   # DELETE /documents/1
   # DELETE /documents/1.json
   def destroy
@@ -90,6 +90,7 @@ s
     
     respond_to do |format|
       format.json { render :json => document.to_json(:include => [ :elements ] ) }
+      format.xml { render :json => document.to_xml(:include => [ :elements ] ) }
     end
   end
 end

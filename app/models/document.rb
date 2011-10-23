@@ -5,6 +5,7 @@ class Document < ActiveRecord::Base
   mount_uploader :pdffile, PdffileUploader
   after_create :dfields # zatial iba after create
   after_create :digest_file # po vytvoreni zmen digest suboru v DB
+  validates_presence_of :pdffile
   
   def digest_file
     url = %x[pwd] + "/public" + self.pdffile.url
