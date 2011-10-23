@@ -12,11 +12,7 @@
 
 <p>
   <b>Description:</b>
-  <%= @document.description %>
-</p>
-
-<p>
-	<%= Document.dfields(@document.pdffile) %>
+  <%= @document.description.to_json %>
 </p>
 
 
