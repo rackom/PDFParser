@@ -1,4 +1,6 @@
 Pdfparser::Application.routes.draw do
+  resources :elements
+
   resources :documents
 
   # The priority is based upon order of creation:
