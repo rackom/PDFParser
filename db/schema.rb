@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20111023085150) do
     t.integer  "FieldFlags"
     t.string   "FieldJustification"
     t.integer  "FieldMaxLength"
+    t.integer  "document_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

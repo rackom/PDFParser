@@ -1,0 +1,6 @@
+main_array.each do |e|
+if not e.include? "---"
+#ak to nie je oddelovac pridam element do pola
+puts e + "\n"
+end
+end

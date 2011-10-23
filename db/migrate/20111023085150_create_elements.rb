@@ -7,6 +7,7 @@ class CreateElements < ActiveRecord::Migration
       t.integer :FieldFlags
       t.string :FieldJustification
       t.integer :FieldMaxLength
+      t.references :document
 
       t.timestamps
     end
