@@ -41,7 +41,6 @@ class Document < ActiveRecord::Base
             @tmp_array.each do |item|
               # ak je to typ polozky
               if item.include? "FieldType"
-                logger.debug item.split(":")[1..-1]
                 new_element.FieldType = item.split(":")[1..-1]
               end
               
@@ -80,6 +79,7 @@ class Document < ActiveRecord::Base
       #test
 
       #self.description = main_array
+      data_fields.html_safe
       self.description = data_fields
       self.save
     end
