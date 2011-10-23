@@ -1,4 +1,5 @@
 class Document < ActiveRecord::Base
+  has_many :elements
   mount_uploader :pdffile, PdffileUploader
   after_save :dfields
   
