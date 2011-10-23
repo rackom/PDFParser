@@ -3,7 +3,7 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Hash</th>
+    <th>Checksum MD5</th>
     <th></th>
     <th></th>
     <th></th>
@@ -12,7 +12,7 @@
 <% @documents.each do |document| %>
   <tr>
     <td><%= document.name %></td>
-    <td><%= document.hash %></td>
+    <td><%= document.checksum %></td>
     <td><%= link_to 'Show', document %></td>
     <td><%= link_to 'Edit', edit_document_path(document) %></td>
     <td><%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete %></td>
