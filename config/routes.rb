@@ -1,7 +1,8 @@
 Pdfparser::Application.routes.draw do
   resources :elements
-
   resources :documents
+  
+  match ':controller/:action/:md5_checksum'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

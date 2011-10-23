@@ -68,7 +68,7 @@ class DocumentsController < ApplicationController
       end
     end
   end
-
+s
   # DELETE /documents/1
   # DELETE /documents/1.json
   def destroy
@@ -78,6 +78,18 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to documents_url }
       format.json { head :ok }
+    end
+  end
+  
+  # Zisti ci je dokument uz v DB
+  # ak je dokument v DB vrati jeho policka
+  # ak dokument nie je v DB vrati null
+  def document_check
+    # ziskame dokument
+    document = Document.find_by_checksum(params[:md5_checksum])
+    
+    respond_to do |format|
+      format.json { render :json => document.to_json(:include => [ :elements ] ) }
     end
   end
 end
