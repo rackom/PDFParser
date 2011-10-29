@@ -1,9 +1,8 @@
-			//////////////////////
-			////  PDFParser  /////
-			//////////////////////
+									//////////////////////
+									////  PDFParser  /////
+									//////////////////////
 
 verzia 0.1
-=========================================================================================================================================
-
+=======================================================================================================================
 Dokument vznikol ako Bakalarsky projekt na Fakulte Informatiky a Informacnych Technologii. Sluzi na ziskavanie informacii o polozkach PDF formularov a obsahuje json/xml volania na pridavanie dokumentov a ziskavanie informacii o nom.
 
