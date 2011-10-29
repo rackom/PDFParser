@@ -25,7 +25,7 @@ class Document < ActiveRecord::Base
     url.gsub!(/\n/,'')
 
     # ziskat datove polia
-    data_fields = %x[pdftk #{url} dump_data_fields]
+    data_fields = %x[pdftk #{url} dump_data_fields_utf8]
     
     # ziskanie pola objektov
     main_array = data_fields.split("\n")
@@ -78,6 +78,15 @@ class Document < ActiveRecord::Base
               
               new_element.FieldMaxLength = max_len
             end
+            
+            # ak je to FieldStateOption
+            if item.include? "FieldStateOption"
+              new_field_state_option = StateOption.new
+              new_field_state_option.value = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
+              new_field_state_option.element_id = new_element.id
+              new_field_state_option.save
+            end
+            
           end
           
           new_element.document_id = self.id
