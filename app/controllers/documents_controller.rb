@@ -32,8 +32,36 @@ class DocumentsController < ApplicationController
                 }
             }
           }
-        ) }
-      format.xml { render :xml => @documents.to_xml(:include => [ :elements ] ) }
+        )
+      }
+      format.xml { render :xml => @documents.to_xml(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
     end
   end
 
@@ -43,9 +71,63 @@ class DocumentsController < ApplicationController
     @document = Document.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @document.to_json(:include => [ :elements ] ) }
-      format.xml { render :xml => @document.to_xml(:include => [ :elements ] ) }
+      format.html # index.html.erb
+      format.json { render :json => @document.to_json(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
+      format.xml { render :xml => @document.to_xml(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
     end
   end
 
@@ -55,9 +137,63 @@ class DocumentsController < ApplicationController
     @document = Document.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render :json => @document.to_json(:include => [ :elements ] ) }
-      format.xml { render :xml => @document.to_xml(:include => [ :elements ] ) }
+      format.html # index.html.erb
+      format.json { render :json => @document.to_json(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
+      format.xml { render :xml => @document.to_xml(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
     end
   end
 
@@ -118,8 +254,63 @@ class DocumentsController < ApplicationController
     document = Document.find_by_checksum(params[:md5_checksum])
     
     respond_to do |format|
-      format.json { render :json => document.to_json(:include => [ :elements ] ) }
-      format.xml { render :xml => document.to_xml(:include => [ :elements ] ) }
+      format.html # index.html.erb
+      format.json { render :json => document.to_json(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
+      format.xml { render :xml => document.to_xml(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        )
+      }
     end
   end
 end
