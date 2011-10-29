@@ -6,7 +6,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @documents }
+      format.json { render :json => @documents.to_json(:include => [ :elements ] ) }
+      format.xml { render :json => @documents.to_xml(:include => [ :elements ] ) }
     end
   end
 
@@ -17,7 +18,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @document }
+      format.json { render :json => @document.to_json(:include => [ :elements ] ) }
+      format.xml { render :json => @document.to_xml(:include => [ :elements ] ) }
     end
   end
 
@@ -28,7 +30,8 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @document }
+      format.json { render :json => @document.to_json(:include => [ :elements ] ) }
+      format.xml { render :json => @document.to_xml(:include => [ :elements ] ) }
     end
   end
 

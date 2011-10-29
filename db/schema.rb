@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111023085150) do
+ActiveRecord::Schema.define(:version => 20111029141243) do
 
   create_table "documents", :force => true do |t|
     t.string   "name"
@@ -32,5 +32,14 @@ ActiveRecord::Schema.define(:version => 20111023085150) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "state_options", :force => true do |t|
+    t.string   "value"
+    t.integer  "element_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "state_options", ["element_id"], :name => "index_state_options_on_element_id"
 
 end

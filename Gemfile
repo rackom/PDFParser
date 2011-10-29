@@ -6,6 +6,7 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
+gem 'rake', '0.8.7'
 gem 'json'
 gem 'carrierwave'
 gem "pdf-toolkit", "~> 0.5.0"

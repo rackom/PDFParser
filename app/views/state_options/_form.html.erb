@@ -1,0 +1,25 @@
+<%= form_for(@state_option) do |f| %>
+  <% if @state_option.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@state_option.errors.count, "error") %> prohibited this state_option from being saved:</h2>
+
+      <ul>
+      <% @state_option.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :value %><br />
+    <%= f.text_field :value %>
+  </div>
+  <div class="field">
+    <%= f.label :element %><br />
+    <%= f.text_field :element %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

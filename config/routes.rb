@@ -1,4 +1,6 @@
 Pdfparser::Application.routes.draw do
+  resources :state_options
+
   resources :elements
   resources :documents
   
