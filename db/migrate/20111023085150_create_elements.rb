@@ -11,5 +11,6 @@ class CreateElements < ActiveRecord::Migration
 
       t.timestamps
     end
+    add_index :elements, :document_id
   end
 end

@@ -6,8 +6,34 @@ class DocumentsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @documents.to_json(:include => [ :elements ] ) }
-      format.xml { render :json => @documents.to_xml(:include => [ :elements ] ) }
+      format.json { render :json => @documents.to_json(
+        :only => [
+          :id,
+          :name,
+          :checksum,
+          :description
+          ],
+          :include => {
+            :elements => {
+              :only => [
+                :FieldType,
+                :FieldName,
+                :FieldNameAlt,
+                :FieldFlags,
+                :FieldJustification,
+                :FieldMaxLength
+                ],
+                :include => {
+                  :state_options => {
+                    :only => [
+                      :value
+                      ]
+                  }
+                }
+            }
+          }
+        ) }
+      format.xml { render :xml => @documents.to_xml(:include => [ :elements ] ) }
     end
   end
 
@@ -19,7 +45,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @document.to_json(:include => [ :elements ] ) }
-      format.xml { render :json => @document.to_xml(:include => [ :elements ] ) }
+      format.xml { render :xml => @document.to_xml(:include => [ :elements ] ) }
     end
   end
 
@@ -31,7 +57,7 @@ class DocumentsController < ApplicationController
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @document.to_json(:include => [ :elements ] ) }
-      format.xml { render :json => @document.to_xml(:include => [ :elements ] ) }
+      format.xml { render :xml => @document.to_xml(:include => [ :elements ] ) }
     end
   end
 
@@ -93,7 +119,7 @@ class DocumentsController < ApplicationController
     
     respond_to do |format|
       format.json { render :json => document.to_json(:include => [ :elements ] ) }
-      format.xml { render :json => document.to_xml(:include => [ :elements ] ) }
+      format.xml { render :xml => document.to_xml(:include => [ :elements ] ) }
     end
   end
 end

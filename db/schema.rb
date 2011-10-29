@@ -33,6 +33,8 @@ ActiveRecord::Schema.define(:version => 20111029141243) do
     t.datetime "updated_at"
   end
 
+  add_index "elements", ["document_id"], :name => "index_elements_on_document_id"
+
   create_table "state_options", :force => true do |t|
     t.string   "value"
     t.integer  "element_id"

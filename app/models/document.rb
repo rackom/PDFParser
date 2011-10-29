@@ -31,6 +31,7 @@ class Document < ActiveRecord::Base
     main_array = data_fields.split("\n")
     
     @tmp_array = []
+    @tmp_state_array = []
     
     main_array.each do |e|
       if not e.include? "---"
@@ -81,16 +82,26 @@ class Document < ActiveRecord::Base
             
             # ak je to FieldStateOption
             if item.include? "FieldStateOption"
+              # toto si mozeme iba ukladat do pola
+              # az ked budeme vedeit ID elementu az potom ulozime
               new_field_state_option = StateOption.new
               new_field_state_option.value = item.split(":")[1..-1].map { |i| i.to_s }.join().squeeze(" ").strip
-              new_field_state_option.element_id = new_element.id
-              new_field_state_option.save
+              @tmp_state_array.push new_field_state_option
             end
             
           end
           
           new_element.document_id = self.id
           new_element.save
+          
+          # tu by sme mali uz vediet ID elementu
+          @tmp_state_array.each do |item|
+            # ulozime kazdy field state option
+            item.element_id = new_element.id
+            item.save
+          end
+          
+          @tmp_state_array.clear
           @tmp_array.clear
         end
       end
