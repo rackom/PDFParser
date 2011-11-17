@@ -6,7 +6,18 @@ class ElementsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render :json => @elements }
+      format.json { render :json => @elements.to_json(
+        :only => [
+          :id
+          ],
+          :include => {
+            :state_options => {
+              :only => [
+                :value
+                ]
+            }
+          }
+        ) }
     end
   end
 
@@ -17,7 +28,18 @@ class ElementsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @element }
+      format.json { render :json => @element.to_json(
+        :only => [
+          :id
+          ],
+          :include => {
+            :state_options => {
+              :only => [
+                :value
+                ]
+            }
+          }
+        ) }
     end
   end
 

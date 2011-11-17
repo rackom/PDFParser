@@ -16,6 +16,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -44,6 +45,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -82,6 +84,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -110,6 +113,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -148,6 +152,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -176,6 +181,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -265,6 +271,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
@@ -293,6 +300,7 @@ class DocumentsController < ApplicationController
           :include => {
             :elements => {
               :only => [
+                :id,
                 :FieldType,
                 :FieldName,
                 :FieldNameAlt,
