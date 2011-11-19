@@ -1,0 +1,30 @@
+<fieldset>
+<div class="input_field">
+  <%= f.label :FieldType %>
+  <%= f.text_field :FieldType, :class => "bigfield" %>
+</div>
+<div class="input_field">
+  <%= f.label :FieldName %>
+  <%= f.text_field :FieldName, :class => "bigfield" %>
+</div>
+<div class="input_field">
+  <%= f.label :FieldNameAlt %>
+  <%= f.text_field :FieldNameAlt, :class => "bigfield" %>
+</div>
+<div class="input_field">
+  <%= f.label :FieldFlags %>
+  <%= f.number_field :FieldFlags, :class => "bigfield" %>
+</div>
+<div class="input_field">
+  <%= f.label :FieldJustification %>
+  <%= f.text_field :FieldJustification, :class => "bigfield" %>
+</div>
+<div class="input_field">
+  <%= f.label :FieldMaxLength %>
+  <%= f.number_field :FieldMaxLength, :class => "bigfield" %>
+</div><br>
+<%= f.fields_for :state_options do |builder| %>
+  <%= render 'state_options_partial', :f => builder %>
+<% end %>
+</fieldset>
+<br>

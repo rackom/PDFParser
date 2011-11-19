@@ -1,20 +1,58 @@
-<p id="notice"><%= notice %></p>
+<% if not notice.nil? %>
+  <p class="success" id="notice"><%= notice %></p>
+<% end %>
 
-<p>
-  <b>Name:</b>
+<fieldset>
+<div class="input_field_show">
+  <label>Name:</label>
   <%= @document.name %>
-</p>
+</div>
 
-<p>
-  <b>Checksum:</b>
+<div class="input_field_show">
+  <label>Checksum:</label>
   <%= @document.checksum %>
-</p>
+</div>
 
-<p>
-  <b>Description:</b>
+<div class="input_field_show">
+  <label>Description:</label>
   <%= @document.description %>
-</p>
+</div>
+</fieldset><br>
 
+<% for element in @document.elements do %>
+    <fieldset>
+	<div class="input_field_show">
+		<label>FieldType</label>
+		<%= element.FieldType %>
+	</div>
+	<div class="input_field_show">
+		<label>FieldName</label>
+		<%= element.FieldName %>
+	</div>
+	<div class="input_field_show">
+		<label>FieldNameAlt</label>
+		<%= element.FieldNameAlt %>
+	</div>
+	<div class="input_field_show">
+		<label>FieldFlags</label>
+		<%= element.FieldFlags %>
+	</div>
+	<div class="input_field_show">
+		<label>FieldJustification</label>
+		<%= element.FieldJustification %>
+	</div>
+	<div class="input_field_show">
+		<label>FieldMaxLength</label>
+		<%= element.FieldMaxLength %>
+	</div><br>
+	<% for state_option in element.state_options do %>
+		<div class="input_field_show">
+			<label>value</label>
+			<%= state_option.value %>
+		</div>
+	<% end %>
+	</fieldset>
+<% end %>
 
 <%= link_to 'Edit', edit_document_path(@document) %> |
 <%= link_to 'Back', documents_path %>

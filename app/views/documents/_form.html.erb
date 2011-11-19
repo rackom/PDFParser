@@ -1,6 +1,6 @@
 <%= form_for @document, :html => { :multipart => true } do |f| %>
   <% if @document.errors.any? %>
-    <div id="error_explanation">
+    <div class="error" id="error_explanation">
       <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
 
       <ul>
@@ -10,19 +10,21 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+ 
+  <fieldset><legend>Údaje o dokumente</legend>
+  <div class="input_field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "bigfield" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="input_field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 4, :size => '20x4' %>
   </div>
-  <div class="field">
-    <%= f.label :pdffile %><br />
+  <div class="input_field">
+    <%= f.label :pdffile %>
     <%= f.file_field :pdffile %>
   </div>
+  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>

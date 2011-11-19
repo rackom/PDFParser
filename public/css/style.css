@@ -385,6 +385,15 @@ fieldset legend { padding: 6px; }
 	top:6px;
 	padding-right: 6px;
 }
+.input_field_show label {
+	display:block;
+	text-align:right;
+	font-weight: bold;
+	width:150px;
+	float:left;
+	position: relative;
+	padding-right: 6px;
+}
 .field_desc { padding-left: 6px; font-style: italic; color: #868176; }
 .field_desc:hover { color: #59544A; }
 
@@ -429,6 +438,21 @@ input[type=button] {
 	-khtml-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+}
+
+.button_right {
+	background: #B5AEA0 url('/images/bg_active_tab.gif') repeat-x top;
+	border: 1px solid #B5AEA0 !important;
+	color: #5C574D !important;
+	font-size: 1.1em;
+	padding: 6px 8px;
+	margin: 2px 0px;
+	-moz-border-radius: 3px;
+	-khtml-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	float:right;
+	position: relative;
 }
 
 /* Page Navigation */

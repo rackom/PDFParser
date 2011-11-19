@@ -11,7 +11,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -40,7 +41,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -79,7 +81,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -108,7 +111,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -147,7 +151,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -176,7 +181,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -266,7 +272,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {
@@ -295,7 +302,8 @@ class DocumentsController < ApplicationController
           :id,
           :name,
           :checksum,
-          :description
+          :description,
+          :pdffile
           ],
           :include => {
             :elements => {

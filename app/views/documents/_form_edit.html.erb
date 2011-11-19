@@ -1,6 +1,6 @@
 <%= form_for @document, :html => { :multipart => true } do |f| %>
   <% if @document.errors.any? %>
-    <div id="error_explanation">
+    <div class="error" id="error_explanation">
       <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
 
       <ul>
@@ -22,37 +22,11 @@
   </div>
   <div class="input_field">
     <%= f.label :pdffile %>
-    <%= f.file_field :pdffile, :class => "bigfield" %>
+    <%= f.file_field :pdffile %>
   </div>
   </fieldset>
   <%= f.fields_for :elements do |builder| %>
-	<fieldset>
-  	<div class="input_field">
-	   <%= builder.label :FieldType %>
-	   <%= builder.text_field :FieldType, :class => "bigfield" %>
-	 </div>
-	 <div class="input_field">
-	   <%= builder.label :FieldName %>
-	   <%= builder.text_field :FieldName, :class => "bigfield" %>
-	 </div>
-	 <div class="input_field">
-	   <%= builder.label :FieldNameAlt %>
-	   <%= builder.text_field :FieldNameAlt, :class => "bigfield" %>
-	 </div>
-	 <div class="input_field">
-	   <%= builder.label :FieldFlags %>
-	   <%= builder.number_field :FieldFlags, :class => "bigfield" %>
-	 </div>
-	 <div class="input_field">
-	   <%= builder.label :FieldJustification %>
-	   <%= builder.text_field :FieldJustification, :class => "bigfield" %>
-	 </div>
-	 <div class="input_field">
-	   <%= builder.label :FieldMaxLength %>
-	   <%= builder.number_field :FieldMaxLength, :class => "bigfield" %>
-	 </div>
-	</fieldset>
-	<br>
+	<%= render 'elements_partial', :f => builder %>
   <% end %>
   <div class="actions">
     <%= f.submit %>
