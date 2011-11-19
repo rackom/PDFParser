@@ -1,24 +1,24 @@
 <h1>Listing documents</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Checksum MD5</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @documents.each do |document| %>
-  <tr>
-    <td><%= document.name %></td>
-    <td><%= document.checksum %></td>
-    <td><%= link_to 'Show', document %></td>
-    <td><%= link_to 'Edit', edit_document_path(document) %></td>
-    <td><%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<table cellspacing="0" cellpadding="0"><!-- Table -->
+	<thead>
+		<tr class="theader">
+			<th>Názov</th>
+			<th>MD5</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	
+	<tbody>
+		<% @documents.each do |document| %>
+		  <tr>
+		    <td><%= link_to document.name, document %></td>
+		    <td><%= document.checksum %></td>
+		    <td><%= link_to 'Edit', edit_document_path(document), :class => "edit" %> | <%= link_to 'Destroy', document, :confirm => 'Are you sure?', :method => :delete, :class => "delete" %></td>
+		  </tr>
+		<% end %>
+	</tbody>
+</table><!-- /Table -->
 
 <br />
 

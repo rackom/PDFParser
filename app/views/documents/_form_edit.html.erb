@@ -11,43 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
+  <fieldset><legend>Údaje o dokumente</legend>
+  <div class="input_field">
+    <%= f.label :name %>
+    <%= f.text_field :name, :class => "bigfield" %>
   </div>
-  <div class="field">
-    <%= f.label :description %><br />
-    <%= f.text_area :description %>
+  <div class="input_field">
+    <%= f.label :description %>
+    <%= f.text_area :description, :rows => 4, :size => '20x4' %>
   </div>
-  <div class="field">
-    <%= f.label :pdffile %><br />
-    <%= f.file_field :pdffile %>
+  <div class="input_field">
+    <%= f.label :pdffile %>
+    <%= f.file_field :pdffile, :class => "bigfield" %>
   </div>
+  </fieldset>
   <%= f.fields_for :elements do |builder| %>
-  	<div class="field">
-	    <%= builder.label :FieldType %><br />
-	    <%= builder.text_field :FieldType %>
-	  </div>
-	  <div class="field">
-	    <%= builder.label :FieldName %><br />
-	    <%= builder.text_field :FieldName %>
-	  </div>
-	  <div class="field">
-	    <%= builder.label :FieldNameAlt %><br />
-	    <%= builder.text_field :FieldNameAlt %>
-	  </div>
-	  <div class="field">
-	    <%= builder.label :FieldFlags %><br />
-	    <%= builder.number_field :FieldFlags %>
-	  </div>
-	  <div class="field">
-	    <%= builder.label :FieldJustification %><br />
-	    <%= builder.text_field :FieldJustification %>
-	  </div>
-	  <div class="field">
-	    <%= builder.label :FieldMaxLength %><br />
-	    <%= builder.number_field :FieldMaxLength %>
-	  </div>
+	<fieldset>
+  	<div class="input_field">
+	   <%= builder.label :FieldType %>
+	   <%= builder.text_field :FieldType, :class => "bigfield" %>
+	 </div>
+	 <div class="input_field">
+	   <%= builder.label :FieldName %>
+	   <%= builder.text_field :FieldName, :class => "bigfield" %>
+	 </div>
+	 <div class="input_field">
+	   <%= builder.label :FieldNameAlt %>
+	   <%= builder.text_field :FieldNameAlt, :class => "bigfield" %>
+	 </div>
+	 <div class="input_field">
+	   <%= builder.label :FieldFlags %>
+	   <%= builder.number_field :FieldFlags, :class => "bigfield" %>
+	 </div>
+	 <div class="input_field">
+	   <%= builder.label :FieldJustification %>
+	   <%= builder.text_field :FieldJustification, :class => "bigfield" %>
+	 </div>
+	 <div class="input_field">
+	   <%= builder.label :FieldMaxLength %>
+	   <%= builder.number_field :FieldMaxLength, :class => "bigfield" %>
+	 </div>
+	</fieldset>
+	<br>
   <% end %>
   <div class="actions">
     <%= f.submit %>
