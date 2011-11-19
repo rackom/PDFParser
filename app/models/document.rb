@@ -7,6 +7,8 @@ class Document < ActiveRecord::Base
   after_create :digest_file # po vytvoreni zmen digest suboru v DB
   validates_presence_of :pdffile
   
+  accepts_nested_attributes_for :elements
+  
   def digest_file
     url = %x[pwd] + "/public" + self.pdffile.url
     url.gsub!(/\n/,'')

@@ -1,0 +1,55 @@
+<%= form_for @document, :html => { :multipart => true } do |f| %>
+  <% if @document.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@document.errors.count, "error") %> prohibited this document from being saved:</h2>
+
+      <ul>
+      <% @document.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :pdffile %><br />
+    <%= f.file_field :pdffile %>
+  </div>
+  <%= f.fields_for :elements do |builder| %>
+  	<div class="field">
+	    <%= builder.label :FieldType %><br />
+	    <%= builder.text_field :FieldType %>
+	  </div>
+	  <div class="field">
+	    <%= builder.label :FieldName %><br />
+	    <%= builder.text_field :FieldName %>
+	  </div>
+	  <div class="field">
+	    <%= builder.label :FieldNameAlt %><br />
+	    <%= builder.text_field :FieldNameAlt %>
+	  </div>
+	  <div class="field">
+	    <%= builder.label :FieldFlags %><br />
+	    <%= builder.number_field :FieldFlags %>
+	  </div>
+	  <div class="field">
+	    <%= builder.label :FieldJustification %><br />
+	    <%= builder.text_field :FieldJustification %>
+	  </div>
+	  <div class="field">
+	    <%= builder.label :FieldMaxLength %><br />
+	    <%= builder.number_field :FieldMaxLength %>
+	  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
